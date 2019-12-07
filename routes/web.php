@@ -15,10 +15,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/tasks', function () {
+    $task = new Task();
+
+    $result = $task->all();
+
+    return $result;
+
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

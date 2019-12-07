@@ -19,6 +19,11 @@ class CreateTasksTable extends Migration
             $table->integer('project_id')->unsigned()->index();
             $table->boolean('is_done');
             $table->string('name');
+
+            $table
+                ->foreign('project_id')
+                ->references('id')
+                ->on('tasks');
         });
     }
 
