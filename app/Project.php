@@ -6,11 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $fillable = ['name'];
+    protected $table = 'projects';
+
+    protected $fillable = ['name', 'user_id'];
 
     public function tasks()
   {
-    return $this->hasMany(Task::class);
+    return $this->hasMany(Task::class)->orderBy('order');
   }
 
   public function user()
@@ -18,8 +20,8 @@ class Project extends Model
     return $this->belongsTo(User::class);
   }
 
-  public function tasks()
-  {
-    return $this->hasMany(Task::class);
-  }
+  public static function getProjectsWithTasks()
+    {
+      return self::where('user_id', Auth::user()->id)->with('tasks')->get();
+    }
 }
