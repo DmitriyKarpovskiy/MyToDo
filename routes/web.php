@@ -15,17 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/tasks', function () {
-    $task = new Task();
-
-    $result = $task->all();
-
-    return $result;
-
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProjectsController@index')->name('home');
+Route::resource('/projects', 'ProjectsController');
+Route::resource('/tasks', 'TasksController');
+Route::post('/tasks/change_status/{id}', 'TasksController@change_status');
+Route::post('/tasks/order', 'TasksController@change_order')->name('tasks.order');
 
 

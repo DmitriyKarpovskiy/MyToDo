@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Project;
+
+use Auth;
+
 class ProjectsController extends Controller
 {
     public function __construct()
