@@ -16,12 +16,12 @@ class ProjectsController extends Controller
         return view('projects/index', ['projects' => Project::getProjectsWithTasks()]);
       }
 
-      public function create ()
+      public function create()
       {
         return view('projects.create');
       }
 
-      public function store (Request $request)
+      public function store(Request $request)
         {
              $this->validate($request, [
             'name' => 'required|max:255'
@@ -55,4 +55,3 @@ class ProjectsController extends Controller
       : redirect()->route('projects.index')->withError('project doesn`t deleted');
     }
 }
-    

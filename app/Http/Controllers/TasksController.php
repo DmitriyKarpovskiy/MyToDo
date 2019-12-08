@@ -22,7 +22,7 @@ class TasksController extends Controller
     $task->order = Task::getLastOrder($request->project_id) + 1;
     return $task->save()
     ? redirect()->route('home')->withSuccess('Task created')
-    : redirect()->route('home')->withError('Task c doesn`t created');
+    : redirect()->route('home')->withError('Task doesn`t created');
   }
   public function edit($id)
   {
