@@ -55,3 +55,4 @@ class ProjectsController extends Controller
       : redirect()->route('projects.index')->withError('project doesn`t deleted');
     }
 }
+    
