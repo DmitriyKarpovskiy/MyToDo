@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 use Auth;
 
-
 class Project extends Model
 {
     protected $table = 'projects';
